@@ -3,11 +3,13 @@ import { Form } from "../../components/Form/Form"
 import { InputField } from "../../components/InputField/InputField"
 import { Button } from "../../components/Button/Button"
 import { useAuth } from "../../Context/AuthContext/AuthContext"
+import { FullScreenSpinner } from "../../components/Spinner/Spinner"
 
 export function Login() {
     const { login } = useAuth()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(false)
 
     const onSubmitCallback = async () => {
 
@@ -16,8 +18,16 @@ export function Login() {
             return 
         }
 
-        await login({email, password})
-
+        setLoading(true)
+        try {
+            await login({email, password})
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+        finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -56,6 +66,7 @@ export function Login() {
                     </Button>
                 </div>
             </Form>
+            {loading && <FullScreenSpinner/>}
         </div>
     )
 }

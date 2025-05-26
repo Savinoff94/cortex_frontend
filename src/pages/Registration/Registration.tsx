@@ -7,6 +7,7 @@ import { SelectField } from "../../components/SelectField/SelectField"
 import type { Role } from "../../types/types"
 import { roles } from "../../types/types"
 import { useAuth } from "../../Context/AuthContext/AuthContext"
+import { FullScreenSpinner } from "../../components/Spinner/Spinner"
 
 export function Registration() {
     const {register} = useAuth()
@@ -14,6 +15,7 @@ export function Registration() {
     const [password, setPassword] = useState('')
     const [repeatPassword, setRepeatPassword] = useState('')
     const [role, setRole] = useState<Role>('admin')
+    const [loading, setLoading] = useState(false)
 
     const onSubmitCallback = async () => {
         if(!email || !password || !repeatPassword) {
@@ -30,7 +32,17 @@ export function Registration() {
             alert("Invalid role")
             return 
         }
-        await register({email, password, role})
+        
+        setLoading(true)
+        try {
+            await register({email, password, role})
+        } catch (error) {
+            console.log(error)
+            throw error
+        }
+        finally {
+            setLoading(false)
+        }
     }
 
     const reset = () => {
@@ -117,6 +129,7 @@ export function Registration() {
                 </div>
                 <Link to="/login">Already have account? Sign In</Link>
             </Form>
+            {loading && <FullScreenSpinner/>}
         </div>
     )
 }

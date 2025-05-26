@@ -2,4 +2,12 @@ html, body {
     height: 100%;
     margin: 0;
 }
+
+.entranceBg {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='100'><text x='0' y='30' font-family='Arial' font-size='20' fill='lightgray' opacity='0.6'>Cortex Real Estate</text></svg>");
+    background-repeat: repeat;
+    background-size: 300px 100px;
+}
 dialog::backdrop { background: transparent; }

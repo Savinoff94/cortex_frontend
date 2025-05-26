@@ -37,29 +37,5 @@ function App() {
     </>
   )
 }
-// function App() {
-//   return (
-//     <>
-//       <BrowserRouter>
-//         <AuthProvider>
-//           <Routes>
-//             <Route path="/" element={<Registration />} />
-//             <Route path="/login" element={<Login />} />
-//             <Route
-//               path="/dashboard"
-//               element={
-//                 <ProtectedRoute>
-//                   <TrafficDataContextProvider>
-//                     <Main />
-//                   </TrafficDataContextProvider>
-//                 </ProtectedRoute>
-//               } 
-//             />
-//           </Routes>
-//         </AuthProvider>
-//       </BrowserRouter>
-//     </>
-//   )
-// }
 
 export default App

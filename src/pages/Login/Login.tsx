@@ -21,7 +21,7 @@ export function Login() {
     }
 
     return (
-        <div className="bg-red-600 w-svw h-svh flex justify-center items-center">
+        <div className="entranceBg w-svw h-svh flex justify-center items-center">
             <Form 
                 onSubmitCallback={onSubmitCallback}
             >

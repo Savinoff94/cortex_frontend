@@ -13,7 +13,7 @@ export function Form({onSubmitCallback, children} : FormProps) {
     }
     return (
         <form 
-        className="flex flex-col gap-6 p-6 bg-white shadow-md rounded-xl border border-gray-200 max-w-md mx-auto"
+        className="flex flex-col gap-6 p-6 bg-gray-50 shadow-md rounded-xl border border-gray-300 max-w-md mx-auto"
         onSubmit={submitHandle}>
             {children}
         </form>

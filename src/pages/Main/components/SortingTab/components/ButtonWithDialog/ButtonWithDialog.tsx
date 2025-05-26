@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { Portal } from "../../../../../../HOC/Portal/Portal";
 import { CreateRowDialog } from "../../../CreateRow/CreateRow";
+import { useAuth } from "../../../../../../Context/AuthContext/AuthContext";
 export function ButtonWithDialog() {
     const [isOpen, setIsOpen] = useState(false)
+    const {user} = useAuth()
+
+    if(user?.role !== "admin") {
+        return null;
+    }
 
     return (
     <>

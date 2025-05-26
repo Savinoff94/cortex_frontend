@@ -79,7 +79,7 @@ export function ChartPage() {
                     by Month
                 </Button>
             </div>
-            <div>
+            <div className="ml-auto mr-auto mt-5" style={{ maxWidth: '800px', maxHeight: '500px', width: '100%', height: '100%' }}>
                 <Line
                 data={{
                     labels: groupedTrafficData.map((item) => item.x),

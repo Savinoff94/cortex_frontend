@@ -8,7 +8,7 @@ export function TableDataCell<T>({type, value}: TableDataCellProps<T>) {
 
     if (type === "visits") {
         return (
-            <td className="border-b border-gray-200 px-4 py-2 text-gray-800">
+            <td className="text-center border-b border-gray-200 px-4 py-2 text-gray-800">
                 {String(value)}
             </td>
         )
@@ -17,14 +17,14 @@ export function TableDataCell<T>({type, value}: TableDataCellProps<T>) {
     if (type === "date") {
         const date = new Date(String(value));
         return (
-            <td className="border-b border-gray-200 px-4 py-2 text-gray-800">
+            <td className="text-center border-b border-gray-200 px-4 py-2 text-gray-800">
                 {date.toLocaleDateString("en-US")}
             </td>
         )
     }
     
     return (
-        <td className="border-b border-gray-200 px-4 py-2 text-red-300">
+        <td className="text-center border-b border-gray-200 px-4 py-2 text-red-300">
             Unknown data
         </td>
     )
@@ -37,7 +37,7 @@ type TableDataActionCell = {
 export function TableDataActionCell({type, onClick, id, label}: TableDataActionCell) {
     return (
         <td 
-            className="border-b border-gray-200 px-4 py-2"
+            className="border-b border-gray-200 px-4 py-2 flex justify-center items-center"
             key={`${id}${String(type)}`}
         >
             <button

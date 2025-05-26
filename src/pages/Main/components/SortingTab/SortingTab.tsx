@@ -37,7 +37,6 @@ export function SortingTab() {
                     }}
                     format={(val: SortingDirection) => `trafficDirection ${val}`}
                 />
-                <ButtonWithDialog/>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
@@ -65,13 +64,17 @@ export function SortingTab() {
                         value: endDate
                     }}
                 />
+            </div>
+            <div className="flex flex-col justify-center sm:flex-row gap-4 w-full lg:w-auto">
+                <ButtonWithDialog/>
                 <Button
                     isPrimary={true}
                     onClick={fetchData}
                 >
-                    Update data
+                    Refresh data
                 </Button>
             </div>
+
             
         </div>
     )

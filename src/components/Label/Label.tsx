@@ -5,7 +5,7 @@ export type LabelProps = LabelHTMLAttributes<HTMLLabelElement> & {additionalClas
 export function Label({children, additionalClasses = '', ...props}: LabelProps) {
     return (
         <label
-        className={`block mb-2 text-sm font-medium text-gray-700 ${additionalClasses}`}
+        className={`flex justify-center items-center mb-2 text-sm font-medium text-gray-700 ${additionalClasses}`}
         {...props}
         >
             {children}

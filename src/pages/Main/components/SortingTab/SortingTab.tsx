@@ -35,7 +35,7 @@ export function SortingTab() {
                     onClick={(val) => {
                         updateTrafficDirection(val)
                     }}
-                    format={(val: SortingDirection) => `trafficDirection ${val}`}
+                    format={(val: SortingDirection) => `Visits ${val}`}
                 />
             </div>
 

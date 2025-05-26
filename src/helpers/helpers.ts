@@ -51,3 +51,5 @@ function getISOWeek(date: Date): string {
   
     return `${tmp.getFullYear()}-W${String(weekNumber).padStart(2, "0")}`; // e.g. 2024-W24
 }
+
+export const url = import.meta.env.VITE_USE_FIREBASE_EMULATOR === "true" ?  import.meta.env.VITE_FIREBASE_DEV : import.meta.env.VITE_FIREBASE_PROD

@@ -22,7 +22,7 @@ export function ChartPage() {
     const [groupingType, setGroupingType] = useState<ChartGroupType>("day")
 
     useEffect(() => {
-        request({ url: `${import.meta.env.VITE_FIREBASE_PROD}api/stats/trafficStats` })
+        request({ url: `${import.meta.env.VITE_FIREBASE_DEV}api/stats/trafficStats` })
         .then((val) => {
             console.log(val)
             setTrafficData(val as TrafficDataType[])

@@ -2,6 +2,7 @@ import { createContext, useEffect, useState, useContext } from "react";
 import { type SortingDirection } from "../../types/types";
 import { type ReactNode } from "react";
 import { useSecureRequest } from "../../hooks/useSecureFirebaseRequest";
+import { url } from "../../helpers/helpers";
 
 
 type TrafficDataContextType = {
@@ -67,7 +68,7 @@ export function TrafficDataContextProvider({children} : {children: ReactNode}) {
         const queryString = params.toString();
         const fullUrl = `api/stats/trafficStats?${queryString}`;
         console.log(queryString)
-        request({ url: `${import.meta.env.VITE_FIREBASE_PROD}${fullUrl}` })
+        request({ url: `${url}${fullUrl}` })
         .then((val) => {
             setTrafficData(val as TrafficDataType[])
         })
@@ -81,7 +82,7 @@ export function TrafficDataContextProvider({children} : {children: ReactNode}) {
 
         try {
             await request({
-                url: `${import.meta.env.VITE_FIREBASE_PROD}api/stats/trafficStats?id=${rowIdToDelete}`,
+                url: `${url}api/stats/trafficStats?id=${rowIdToDelete}`,
                 method: "DELETE"
             })
             setRowIdToDelete(null)
@@ -94,7 +95,7 @@ export function TrafficDataContextProvider({children} : {children: ReactNode}) {
         const visitsNumber = parseInt(visits)
         try {
             await request({ 
-                url: `${import.meta.env.VITE_FIREBASE_PROD}api/stats/trafficStats?`, 
+                url: `${url}api/stats/trafficStats?`, 
                 method: "PUT", body: {id, visits: visitsNumber, date}
             })
             setRowIdToUpdate(null)
@@ -107,7 +108,7 @@ export function TrafficDataContextProvider({children} : {children: ReactNode}) {
         const visitsNumber = parseInt(visits)
         try {
             await request({
-                url: `${import.meta.env.VITE_FIREBASE_PROD}api/stats/trafficStats?`,
+                url: `${url}api/stats/trafficStats?`,
                 method: "POST", body: {visits: visitsNumber, date}
             })
             callbackOnSuccess()

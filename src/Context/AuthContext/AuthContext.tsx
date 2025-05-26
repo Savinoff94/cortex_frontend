@@ -3,7 +3,8 @@ import { type Role } from "../../types/types";
 import { useState, useContext, useEffect } from "react";
 import { signInWithEmailAndPassword, onAuthStateChanged, getIdTokenResult, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../../configs/firebase"
+import { url } from "../../helpers/helpers";
+import auth from "../../configs/firebase"
 
 type User = {
     email : string,
@@ -57,7 +58,7 @@ export function AuthProvider({children} : {children: ReactNode}) {
       }, []);
     async function register({email, password, role} : RegistrationProps) {
         try {
-            const res = await fetch("https://us-central1-cortex-e091e.cloudfunctions.net/api/user/register", {
+            const res = await fetch(`${url}api/user/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -75,7 +76,7 @@ export function AuthProvider({children} : {children: ReactNode}) {
             console.log("User registered:", data);
 
             await signInWithEmailAndPassword(auth, email, password);
-            navigate('/dashboard')
+            navigate('/main')
             
             return data;
         } catch (err) {

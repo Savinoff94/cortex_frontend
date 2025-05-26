@@ -37,7 +37,7 @@ type TableDataActionCell = {
 export function TableDataActionCell({type, onClick, id, label}: TableDataActionCell) {
     return (
         <td 
-            className="border-b border-gray-200 px-4 py-2 flex justify-center items-center"
+            className="border-b border-gray-200 px-4 py-2"
             key={`${id}${String(type)}`}
         >
             <button

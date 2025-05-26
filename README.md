@@ -1,3 +1,32 @@
+# CORTEX TEST DESCRIPTION
+- you should have firebase client
+```js
+git clone https://github.com/Savinoff94/cortex_frontend.git
+```
+```js
+cd ./cortex_frontend
+```
+```js
+npm install
+```
+
+- create .env file in projects root folder
+- fill in with variables: 
+
+```js
+VITE_FIREBASE_DEV=http://localhost:5001/cortex-e091e/us-central1/
+VITE_USE_FIREBASE_EMULATOR=true 
+```
+- it also has some stories
+```js
+npm run storybook
+```
+- and some unit tests
+```js
+npm run test
+```
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

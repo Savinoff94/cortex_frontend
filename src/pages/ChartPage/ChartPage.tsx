@@ -6,6 +6,7 @@ import { Button } from "../../components/Button/Button";
 import { groupByMonth, groupByWeek } from "../../helpers/helpers";
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title, CategoryScale } from 'chart.js';
+import { url } from "../../helpers/helpers";
 
 ChartJS.register(LineElement, PointElement, LinearScale, Title, CategoryScale);
 
@@ -22,7 +23,7 @@ export function ChartPage() {
     const [groupingType, setGroupingType] = useState<ChartGroupType>("day")
 
     useEffect(() => {
-        request({ url: `${import.meta.env.VITE_FIREBASE_DEV}api/stats/trafficStats` })
+        request({ url: `${url}api/stats/trafficStats` })
         .then((val) => {
             console.log(val)
             setTrafficData(val as TrafficDataType[])
